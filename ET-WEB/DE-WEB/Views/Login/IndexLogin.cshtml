@@ -26,7 +26,7 @@
             {
                 <h1>Crear Cuenta</h1>
                 <div class="brand">
-                    <a href="@Url.Action("Index","Home")"><h3>DaanEssence</h3></a>
+                    <a href="@Url.Action("Index","Home")"><h3>Empresa</h3></a>
                 </div>
                 @Html.TextBoxFor(m => m.identificacion, new { @id = "identificacion", @onkeyup = "ConsultarNombre()", @type = "text", @placeholder = "Identificacion" })
                 @Html.TextBoxFor(m => m.nombreCompleto, new { @id = "nombreCompleto", @readonly = "readonly", @type = "text", @placeholder = "Nombre Completo" })
@@ -49,7 +49,7 @@
             {
                 <h1>Iniciar Sesion</h1>
                 <div class="brand">
-                    <a href="@Url.Action("Index","Home")"><h3>DaanEssence</h3></a>
+                    <a href="@Url.Action("Index","Home")"><h3>Empresa</h3></a>
                 </div>
                 @Html.TextBoxFor(m => m.username, new { @type = "text", @placeholder = "Nombre de Usuario / Correo Electronico" })
                 <div style="position: relative; width: 100%;">

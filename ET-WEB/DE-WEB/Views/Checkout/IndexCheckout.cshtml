@@ -6,13 +6,13 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página de Checkout</title>
-    <link rel="stylesheet" href="~/template/css/checkout.css">
+    <link rel="stylesheet" href="~/template/css/checkout.css" />
     <script src="https://kit.fontawesome.com/1e280cd0fb.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -21,7 +21,9 @@
             <h2>Logo</h2>
         </div>
         <div class="back-button">
-            <button onclick="window.history.back()"><i class="fa-solid fa-circle-chevron-left"></i> Atrás</button>
+            <button onclick="window.history.back()">
+                <i class="fa-solid fa-circle-chevron-left"></i> Atrás
+            </button>
         </div>
     </header>
     <div class="checkout-container">
@@ -33,15 +35,15 @@
                 <form class="custom-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="inputNombre" placeholder="Nombre" required>
+                            <input type="text" id="inputNombre" placeholder="Nombre" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" id="inputApellido" placeholder="Apellido" required>
+                            <input type="text" id="inputApellido" placeholder="Apellido" required />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group full-width">
-                            <input type="text" id="inputCedula" placeholder="Cédula" required>
+                            <input type="text" id="inputCedula" placeholder="Cédula" required />
                         </div>
                     </div>
                     <div class="form-row">
@@ -74,7 +76,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="inputCelular" placeholder="Celular" required>
+                            <input type="tel" id="inputCelular" placeholder="Celular" required />
                         </div>
                     </div>
                     <div class="form-row">
@@ -93,21 +95,26 @@
                     <p>
                         <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#opcion1"
                             aria-expanded="false" aria-controls="opcion1"
-                            style="background-color: #ffd4db; color: #000;">
+                            style="background-color: #ffd4db; color: #000">
                             Opción 1 $12.00
                         </button>
                     </p>
-                    <div style="min-height: 5px; margin-top: 20px;">
+                    <div style="min-height: 5px; margin-top: 20px">
                         <div class="collapse" id="opcion1">
-                            <div class="card card-body"
-                                style="width: 300px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 20px;">
+                            <div class="card card-body" style="
+                    width: 300px;
+                    background-color: #f8f9fa;
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                  ">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox1">
-                                    <label class="form-check-label" for="checkbox1" style="color: #000;">
+                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox1" />
+                                    <label class="form-check-label" for="checkbox1" style="color: #000">
                                         <strong> (Información de la opción 1)</strong>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore obcaecati
-                                        ad vitae ducimus? Sunt accusamus nobis ex a, iusto illum eos odio doloremque
-                                        porro excepturi hic consequatur, sequi omnis!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Porro labore obcaecati ad vitae ducimus? Sunt accusamus
+                                        nobis ex a, iusto illum eos odio doloremque porro
+                                        excepturi hic consequatur, sequi omnis!
                                     </label>
                                 </div>
                             </div>
@@ -117,21 +124,26 @@
                     <p>
                         <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#opcion2"
                             aria-expanded="false" aria-controls="opcion2"
-                            style="background-color: #ffd4db; color: #000;">
+                            style="background-color: #ffd4db; color: #000">
                             Opción 2 $15.00
                         </button>
                     </p>
-                    <div style="min-height: 5px; margin-top: 20px;">
+                    <div style="min-height: 5px; margin-top: 20px">
                         <div class="collapse" id="opcion2">
-                            <div class="card card-body"
-                                style="width: 300px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 20px;">
+                            <div class="card card-body" style="
+                    width: 300px;
+                    background-color: #f8f9fa;
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                  ">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox2">
-                                    <label class="form-check-label" for="checkbox2" style="color: #000;">
+                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox2" />
+                                    <label class="form-check-label" for="checkbox2" style="color: #000">
                                         <strong> (Información de la opción 2)</strong>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore obcaecati
-                                        ad vitae ducimus? Sunt accusamus nobis ex a, iusto illum eos odio doloremque
-                                        porro excepturi hic consequatur, sequi omnis!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Porro labore obcaecati ad vitae ducimus? Sunt accusamus
+                                        nobis ex a, iusto illum eos odio doloremque porro
+                                        excepturi hic consequatur, sequi omnis!
                                     </label>
                                 </div>
                             </div>
@@ -141,21 +153,26 @@
                     <p>
                         <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#opcion3"
                             aria-expanded="false" aria-controls="opcion3"
-                            style="background-color: #ffd4db; color: #000;">
+                            style="background-color: #ffd4db; color: #000">
                             Opción 3 $18.00
                         </button>
                     </p>
-                    <div style="min-height: 5px; margin-top: 20px;">
+                    <div style="min-height: 5px; margin-top: 20px">
                         <div class="collapse" id="opcion3">
-                            <div class="card card-body"
-                                style="width: 300px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 20px;">
+                            <div class="card card-body" style="
+                    width: 300px;
+                    background-color: #f8f9fa;
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                  ">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox3">
-                                    <label class="form-check-label" for="checkbox3" style="color: #000;">
+                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox3" />
+                                    <label class="form-check-label" for="checkbox3" style="color: #000">
                                         <strong> (Información de la opción 3)</strong>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro labore obcaecati
-                                        ad vitae ducimus? Sunt accusamus nobis ex a, iusto illum eos odio doloremque
-                                        porro excepturi hic consequatur, sequi omnis!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Porro labore obcaecati ad vitae ducimus? Sunt accusamus
+                                        nobis ex a, iusto illum eos odio doloremque porro
+                                        excepturi hic consequatur, sequi omnis!
                                     </label>
                                 </div>
                             </div>
@@ -168,12 +185,11 @@
                 <div class="payment-options">
                     <h2 class="section-title">Métodos de Pago</h2>
                     <div class="accordion" id="paymentMethods">
-
                         <!-- Método de pago 1: Tarjeta de Crédito/Débito -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingCreditCard">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseCreditCard" aria-expanded="true"
+                                    data-bs-target="#collapseCreditCard" aria-expanded="false"
                                     aria-controls="collapseCreditCard">
                                     Tarjeta de Crédito/Débito
                                 </button>
@@ -181,29 +197,30 @@
                             <div id="collapseCreditCard" class="accordion-collapse collapse show"
                                 aria-labelledby="headingCreditCard" data-bs-parent="#paymentMethods">
                                 <div class="accordion-body">
-                                    <p>Introduce los datos de tu tarjeta para realizar el pago.</p>
+                                    <p>
+                                        Introduce los datos de tu tarjeta para realizar el pago.
+                                    </p>
                                     <form>
                                         <div class="mb-3">
                                             <label for="cardName" class="form-label">Nombre en la tarjeta</label>
                                             <input type="text" class="form-control" id="cardName"
-                                                placeholder="Nombre completo" required>
+                                                placeholder="Nombre completo" required />
                                         </div>
                                         <div class="mb-3">
                                             <label for="cardNumber" class="form-label">Número de tarjeta</label>
                                             <input type="text" class="form-control" id="cardNumber"
-                                                placeholder="1234 5678 9012 3456" required>
+                                                placeholder="1234 5678 9012 3456" required />
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label for="expiryDate" class="form-label">Fecha de
-                                                    expiración</label>
+                                                <label for="expiryDate" class="form-label">Fecha de expiración</label>
                                                 <input type="text" class="form-control" id="expiryDate"
-                                                    placeholder="MM/AA" required>
+                                                    placeholder="MM/AA" required />
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="cvv" class="form-label">CVV</label>
                                                 <input type="text" class="form-control" id="cvv" placeholder="123"
-                                                    required>
+                                                    required />
                                             </div>
                                         </div>
                                     </form>
@@ -214,16 +231,19 @@
                         <!-- Método de pago 2: Transferencia Bancaria -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingBankTransfer">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed show" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseBankTransfer" aria-expanded="false"
                                     aria-controls="collapseBankTransfer">
                                     Transferencia Bancaria
                                 </button>
+
                             </h2>
                             <div id="collapseBankTransfer" class="accordion-collapse collapse"
                                 aria-labelledby="headingBankTransfer" data-bs-parent="#paymentMethods">
                                 <div class="accordion-body">
-                                    <p>Puedes transferir el monto al siguiente número de cuenta:</p>
+                                    <p>
+                                        Puedes transferir el monto al siguiente número de cuenta:
+                                    </p>
                                     <ul>
                                         <li><strong>Banco:</strong> Banco Nacional</li>
                                         <li><strong>Cuenta:</strong> 123-456-789</li>
@@ -245,36 +265,226 @@
                             <div id="collapseCashOnDelivery" class="accordion-collapse collapse"
                                 aria-labelledby="headingCashOnDelivery" data-bs-parent="#paymentMethods">
                                 <div class="accordion-body">
-                                    <p>Paga en efectivo al momento de recibir el producto. Este método es seguro y
-                                        conveniente.</p>
+                                    <p>
+                                        Paga en efectivo al momento de recibir el producto. Este
+                                        método es seguro y conveniente.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!-- Division  -->
                 <div class="divider"></div>
-                <!-- Ociones de facturación  -->
-                <div class="invoices-options">
-                    <h2 class="section-title">Facturación</h2>
-                   <!-- Opcion 1 -->
-                   
+                <h2 class="section-title">Facturación</h2>
+                <!-- Opcion 1 -->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Misma dirección de entrega
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="checkbox-container">
+                                    <label>
+                                        <input type="checkbox" class="content-checkbox" />
+                                        <span>Misma direccion de envio</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Opcion 2 -->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFacturacion" aria-expanded="false"
+                                aria-controls="collapseFacturacion">
+                                Diferente dirección de facturación
+                            </button>
+                        </h2>
+                        <div id="collapseFacturacion" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="checkbox-container"></div>
+                                <!-- Formulario agregado -->
+                                <form class="facturacion-form">
+                                    <div class="form-row">
+                                        <div class="form-group pb-2">
+                                            <input type="text" id="inputNombreFacturacion" placeholder="Nombre"
+                                                required />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="inputApellidoFacturacion" placeholder="Apellido"
+                                                required />
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group full-width pb-2">
+                                            <input type="text" id="inputCedulaFacturacion" placeholder="Cédula"
+                                                required />
+                                        </div>
+                                        <div class="form-group full-width pb-2">
+                                            <input type="text" id="inputCelularFacturacion" placeholder="Celular"
+                                                required />
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group full-width pb-2">
+                                            <textarea id="inputDireccionFacturacion" rows="3"
+                                                placeholder="Dirección detallada..." required></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Botón Finalizar Pedido -->
                 <div class="finalizar-pedido">
-                    <button type="button" class="finalizar-btn">Finalizar Pedido</button>
+                    <button type="button" class="finalizar-btn">
+                        Finalizar Pedido
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="right-column">
-            <!-- Contenido de la columna derecha -->
+        <!-- Columna derecha  -->
+        <!-- Botón para desplegar el resumen en móviles -->
+        <button class="btn btn-toggle d-block d-md-none w-100 mb-3" type="button" data-bs-toggle="collapse"
+            data-bs-target="#resumenCollapse" aria-expanded="false" aria-controls="resumenCollapse">
+            Ver Resumen del Pedido
+        </button>
+
+        <!-- Contenido de la columna derecha dentro de un acordeón para móviles -->
+        <div class="collapse d-md-none" id="resumenCollapse">
+            <div class="right-column-mobile">
+                <div class="right-container">
+                    <!-- Resumen del Pedido -->
+                    <div class="resumen-pedido">
+                        <h3 class="resumen-titulo">Resumen del Pedido</h3>
+                        <!-- Producto 1 -->
+                        <div class="producto-resumen">
+                            <img src="img/xGray.png" alt="Producto 1" class="producto-imagen" />
+                            <div class="producto-info">
+                                <p class="producto-nombre">Nombre del Producto 1</p>
+                                <p class="producto-precio">$20.00</p>
+                                <p class="producto-cantidad">Cantidad: 1</p>
+                            </div>
+                        </div>
+                        <!-- Producto 2 -->
+                        <div class="producto-resumen">
+                            <img src="~/template/img/xGray.png" alt="Producto 2" class="producto-imagen" />
+                            <div class="producto-info">
+                                <p class="producto-nombre">Nombre del Producto 2</p>
+                                <p class="producto-precio">$15.00</p>
+                                <p class="producto-cantidad">Cantidad: 2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Código de Descuento -->
+                    <div class="codigo-descuento">
+                        <input type="text" id="codigoDescuentoMobile" placeholder="Código de descuento"
+                            class="descuento-input" />
+                        <button type="button" class="aplicar-descuento-btn">
+                            Aplicar
+                        </button>
+                    </div>
+
+                    <!-- Subtotal, Envío y Total -->
+                    <div class="resumen-total">
+                        <div class="resumen-linea">
+                            <p>Subtotal</p>
+                            <p>$35.00</p>
+                        </div>
+                        <div class="resumen-linea">
+                            <p>Envío</p>
+                            <p>$5.00</p>
+                        </div>
+                        <div class="resumen-linea total">
+                            <p>Total</p>
+                            <p>$40.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido de la columna derecha -->
+        <div class="right-column d-none d-md-block">
+            <div class="right-container">
+                <!-- Resumen del Pedido -->
+                <div class="resumen-pedido">
+                    <h3 class="resumen-titulo">Resumen del Pedido </h3>
+                    <!-- Producto 1 -->
+                    <div class="producto-resumen">
+                        <img src="~/template/img/xGray.png" alt="Producto 1" class="producto-imagen" />
+                        <div class="producto-info">
+                            <p class="producto-nombre">Nombre del Producto 1</p>
+                            <p class="producto-precio">$20.00</p>
+                            <p class="producto-cantidad">Cantidad: 1</p>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="producto-resumen">
+                        <img src="~/template/img/xGray.png" alt="Producto 2" class="producto-imagen" />
+                        <div class="producto-info">
+                            <p class="producto-nombre">Nombre del Producto 2</p>
+                            <p class="producto-precio">$15.00</p>
+                            <p class="producto-cantidad">Cantidad: 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Código de Descuento -->
+                <div class="codigo-descuento">
+                    <input type="text" id="codigoDescuento" placeholder="Código de descuento" class="descuento-input" />
+                    <button type="button" class="aplicar-descuento-btn">Aplicar</button>
+                </div>
+
+                <!-- Subtotal, Envío y Total -->
+                <div class="resumen-total">
+                    <div class="resumen-linea">
+                        <p>Subtotal</p>
+                        <p>$35.00</p>
+                    </div>
+                    <div class="resumen-linea">
+                        <p>Envío</p>
+                        <p>$5.00</p>
+                    </div>
+                    <div class="resumen-linea total">
+                        <p>Total</p>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll(".accordion-checkbox").forEach((checkbox) => {
+            checkbox.addEventListener("change", (event) => {
+                const targetId = event.target.getAttribute("data-target");
+                const content = document.querySelector(targetId);
+
+                if (event.target.checked) {
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
