@@ -1,0 +1,140 @@
+@{
+    ViewData["Title"] = "Reseña de Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/template/css/ProductReview.css">
+</head>
+
+<div class="container my-4">
+    <!-- Botón de Volver Atrás -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <a href="~/ProductDetails" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Volver a Detalles del Producto</a>
+        </div>
+    </div>
+
+    <!-- Información del Producto -->
+    <div class="row product-info">
+        <div class="col-lg-6">
+            <img src="~/template/img/xGray.png" alt="Imagen del Producto" class="img-fluid product-image">
+        </div>
+        <div class="col-lg-6">
+            <h1>Tu Título Aquí</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="rating-average">
+                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                <span class="average-rating">4.5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Reseñas -->
+    <div class="row reviews-section mt-5">
+        <div class="col-12">
+            <h2>Reseñas de Clientes</h2>
+            <div class="reviews-container">
+                <!-- Reseña del Usuario -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="~/template/img/user1.jpg" alt="Foto del Usuario" class="user-photo">
+                        <div class="user-info">
+                            <h5>Nombre de Usuario 1</h5>
+                            <div class="rating">
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star-half-alt" style="color: #8b0f35;"></i>
+                                <i class="far fa-star" style="color: #8b0f35;"></i>
+                            </div>
+                            <p class="review-date">Publicado el: 2023-10-01 10:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="review-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <!-- Reseña del Usuario -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="~/template/img/user2.jpg" alt="Foto del Usuario" class="user-photo">
+                        <div class="user-info">
+                            <h5>Nombre de Usuario 2</h5>
+                            <div class="rating">
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="far fa-star" style="color: #8b0f35;"></i>
+                                <i class="far fa-star" style="color: #8b0f35;"></i>
+                            </div>
+                            <p class="review-date">Publicado el: 2023-10-02 03:30 PM</p>
+                        </div>
+                    </div>
+                    <div class="review-body">
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+
+                <!-- Reseña del Usuario -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="~/template/img/user3.jpg" alt="Foto del Usuario" class="user-photo">
+                        <div class="user-info">
+                            <h5>Nombre de Usuario 3</h5>
+                            <div class="rating">
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="fas fa-star" style="color: #8b0f35;"></i>
+                                <i class="far fa-star" style="color: #8b0f35;"></i>
+                                <i class="far fa-star" style="color: #8b0f35;"></i>
+                            </div>
+                            <p class="review-date">Publicado el: 2023-10-03 11:45 AM</p>
+                        </div>
+                    </div>
+                    <div class="review-body">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario para Agregar Reseñas -->
+    <div class="row add-review-section mt-5">
+        <div class="col-12">
+            <h2>Deja una Reseña</h2>
+            <form>
+                <div class="form-group">
+                    <label for="userName">Nombre</label>
+                    <input type="text" class="form-control" id="userName" placeholder="Tu Nombre">
+                </div>
+                <div class="form-group">
+                    <label for="userPhoto">Foto</label>
+                    <input type="file" class="form-control-file" id="userPhoto">
+                </div>
+                <div class="form-group rating-form-group">
+                    <label for="rating">Calificación</label>
+                    <div class="rating-form">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" class="fas fa-star"></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" class="fas fa-star"></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" class="fas fa-star"></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" class="fas fa-star"></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" class="fas fa-star"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Reseña</label>
+                    <textarea class="form-control" id="reviewText" rows="3" placeholder="Tu Reseña"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Enviar Reseña</button>
+            </form>
+        </div>
+    </div>
+</div>

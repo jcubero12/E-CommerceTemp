@@ -1,0 +1,406 @@
+﻿@{
+    var currentAction = ViewData["CurrentAction"]?.ToString();
+    var currentController = ViewData["CurrentController"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaanEssence</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- FontAwsome -->
+    <script src="https://kit.fontawesome.com/1e280cd0fb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/template/css/Layout.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="container-fluid p-4">
+        <div class="row align-items-center text-center">
+            <div class="col-md-5 col-12">
+                <h1 class="logo">Logo</h1>
+            </div>
+            <div class="col-md-2 text-center d-none d-md-block">
+                <form class="d-none d-lg-flex mt-2" role="search">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Buscar productos"
+                            aria-label="Buscar productos" style="background-color: #6969691e;">
+                        <button class="btn search-navbar" type="button"
+                            style="background-color: #6969691e; border: none; color: black;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 text-center header-top d-none d-md-block">
+                <!-- Enlaces que solo se muestran en pantallas grandes (lg) -->
+                <div class="d-none d-lg-block">
+                    <a href="@Url.Action("IndexLogin", "Login")" class="d-block mb-2">Iniciar Sesión o Crear Cuenta</a>
+                    <a href="#" class="ml-3 position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count" class="cart-count">3</span>
+                    </a>
+                    <a href="#" class="ml-3" data-bs-toggle="modal" data-bs-target="#wishlistModal">
+                        <i class="fas fa-heart"></i> Lista deseos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Modal Carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list">
+                            <tr>
+                                <td><img src="~/template/img/xGray.png" alt="Producto 1"></td>
+                                <td>Producto 1</td>
+                                <td>1</td>
+                                <td>$10.00</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Quitar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/template/img/xGray.png" alt="Producto 2"></td>
+                                <td>Producto 2</td>
+                                <td>2</td>
+                                <td>$20.00</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Quitar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/template/img/xGray.png" alt="Producto 3"></td>
+                                <td>Producto 3</td>
+                                <td>1</td>
+                                <td>$30.00</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Quitar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-4">
+                        <h5>Subtotal: <span id="subtotal">$60.00</span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        aria-label="Seguir comprando">Seguir Comprando</button>
+                    <a href="@Url.Action("IndexCheckout","Checkout")" class="btn btn-primary" aria-label="Proceder al pago">Proceder al
+                        Pago</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Added closing div for Modal Carrito -->
+
+    <!-- Modal Wishlist -->
+    <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wishlistModalLabel">Wishlist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tabla de productos -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wishlistTableBody">
+                            <tr>
+                                <td><a href="#" class="product-link" data-bs-toggle="modal"
+                                        data-bs-target="#productModal1">Producto
+                                        1</a></td>
+                                <td class="product-price">$100</td>
+                                <td class="table-buttons">
+                                    <button class="btn btn-danger btn-sm me-2" aria-label="Eliminar producto"><i
+                                            class="fas fa-times"></i></button>
+                                    <button class="btn btn-success btn-sm" aria-label="Agregar al carrito"><i
+                                            class="fas fa-cart-plus"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="product-link" data-bs-toggle="modal"
+                                        data-bs-target="#productModal2">Producto
+                                        2</a></td>
+                                <td class="product-price">$200</td>
+                                <td class="table-buttons">
+                                    <button class="btn btn-danger btn-sm me-2" aria-label="Eliminar producto"><i
+                                            class="fas fa-times"></i></button>
+                                    <button class="btn btn-success btn-sm" aria-label="Agregar al carrito"><i
+                                            class="fas fa-cart-plus"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="product-link" data-bs-toggle="modal"
+                                        data-bs-target="#productModal3">Producto
+                                        3</a></td>
+                                <td class="product-price">$300</td>
+                                <td class="table-buttons">
+                                    <button class="btn btn-danger btn-sm me-2" aria-label="Eliminar producto"><i
+                                            class="fas fa-times"></i></button>
+                                    <button class="btn btn-success btn-sm" aria-label="Agregar al carrito"><i
+                                            class="fas fa-cart-plus"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Añadir más productos según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <h5 class="modal-title">Subtotal: <span id="subtotal">$600</span></h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        aria-label="Cerrar">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Added closing div for Modal Wishlist -->
+
+    <!-- Modal Detalle de Producto -->
+    <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel1">Detalle de Producto 1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="~/img/xGray.png" class="img-fluid mb-3" style="max-width: 150px;"
+                        alt="Imagen del Producto 1">
+                    <p class="mb-3">Descripción detallada del Producto 1.</p>
+                    <p class="fw-bold">$100</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-target="#wishlistModal"
+                        data-bs-toggle="modal" aria-label="Regresar a Wishlist">Atrás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel2">Detalle de Producto 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Producto 2</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-target="#wishlistModal"
+                        data-bs-toggle="modal" aria-label="Regresar a Wishlist">Atrás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel3">Detalle de Producto 3</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, error nisi. Blanditiis, quibusdam
+                        cupiditate
+                        quasi dolorem laborum error eaque eum exercitationem possimus quia obcaecati, ea laboriosam iure
+                        temporibus
+                        perspiciatis illum?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-target="#wishlistModal"
+                        data-bs-toggle="modal" aria-label="Regresar a Wishlist">Atrás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Más
+            </button>
+            <div class="canvas-links d-lg-none d-flex align-items-center ms-auto">
+                <a href="#" class="nav-link d-flex align-items-center mx-2" data-bs-toggle="modal"
+                    data-bs-target="#cartModal">
+                    <i class="fas fa-shopping-cart" style="margin-left: 4px;"></i> Carrito <span id="cart-count"
+                        class="cart-count-navbar">3</span>
+                </a>
+                <a href="#" class="nav-link d-flex align-items-center mx-2" data-bs-toggle="modal"
+                    data-bs-target="#wishlistModal">
+                    <i class="fas fa-heart"></i><span style="margin-left: 4px;">Lista de deseos</span>
+                </a>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <form class="d-flex mt-2" role="search">
+                        <div class="input-group d-lg-none">
+                            <input class="form-control" type="search" placeholder="Buscar productos"
+                                aria-label="Buscar productos">
+                            <button class="btn search-canvas" type="button"
+                                style="background-color: #d5b0b671; color: #000;">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 custom-nav">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "Index" && currentController == "Home" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)"
+                                href="@Url.Action("Index", "Home")">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "Perfumes" && currentController == "Categories" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)"
+                                href="@Url.Action("Perfumes", "Categories")">Perfumes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "CuidadoCorporal" && currentController == "Categories" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)"
+                                href="@Url.Action("CuidadoCorporal", "Categories")">Cuidado Corporal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "Cabello" && currentController == "Categories" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)"
+                                href="@Url.Action("Cabello","Categories")">Cabello</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "AboutUs" && currentController == "Info" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)">Sobre
+                                Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 @(currentAction == "ContactUs" && currentController == "Info" ? "active" : "")"
+                                aria-current="@(currentAction == "Index" && currentController == "Home" ? "page" : null)">Contacto</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mx-lg-2" href="@Url.Action("IndexLogin", "Login")">Iniciar Sesión o
+                                Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Main Content -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-light text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">DaanEssence</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus ac eget diam et laoreet.
+                    </p>
+                </div>
+                <!-- Links -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Perfumes</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Cuidado Corporal</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Cabello</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Sobre Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Siguenos</h5>
+                    <button type="button" class="btn btn-outline-dark"><a href="#"><i class="fab fa-instagram"
+                                style="text-decoration: none; color: #000;"></i></a></button>
+                    <button type="button" class="btn btn-outline-dark"><a href="#"><i class="fab fa-whatsapp"
+                                style="text-decoration: none; color: #000;"></i></a></button>
+
+
+                    @* <!-- Modo Oscuro -->
+                                        <button id="modeToggleFooter" class="btn btn-outline-secondary m-1">Modo Oscuro</button>
+                                        <!-- Selector de Idioma -->
+                                        <div class="sort-container">
+                                            <label for="sort">Traducir página:</label>
+                                            <select id="language-selector">
+                                                <option>Escoger</option>
+                                                <option>Español</option>
+                                                <option>Inglés</option>
+                                                <option>Portugués</option>
+                                            </select>
+                                        </div> *@
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            &copy; <span id="currentYear"></span> DaanEssence @DateTime.Now.Year.
+            <span>Todos los derechos reservados.</span>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+@model DE_WEB.Entities.UsuarioEnt
+@{
+    ViewData["Title"] = "IndexLogin";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwsome -->
+    <script src="https://kit.fontawesome.com/1e280cd0fb.js" crossorigin="anonymous"></script>
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/template/css/IndexLogin.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            @using (Html.BeginForm("SignUp","Login", FormMethod.Post))
+            {
+                <h1>Crear Cuenta</h1>
+                <div class="brand">
+                    <a href="@Url.Action("Index","Home")"><h3>DaanEssence</h3></a>
+                </div>
+                @Html.TextBoxFor(m => m.identificacion, new { @id = "identificacion", @onkeyup = "ConsultarNombre()", @type = "text", @placeholder = "Identificacion" })
+                @Html.TextBoxFor(m => m.nombreCompleto, new { @id = "nombreCompleto", @readonly = "readonly", @type = "text", @placeholder = "Nombre Completo" })
+                @Html.TextBoxFor(m => m.username, new { @id = "username", @onclick = "GenNombreUsuario()", @readonly = "readonly", @type = "text", @placeholder = "Nombre de Usuario" })
+                @Html.TextBoxFor(m => m.correoElectronico, new { @type = "email", @placeholder = "Correo Electronico" })
+               <div style="position: relative; width: 100%;">
+                    <!-- Campo de entrada de contraseña -->
+                    @Html.PasswordFor(m => m.password, new { @type = "password", @placeholder = "Contraseña", @class = "password-field", @style = "width: 100%; padding-right: 40px;" })
+
+                    <!-- Ícono para mostrar/ocultar contraseña -->
+                    <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" class="toggle-password">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
+                <button type="submit">Registrarse</button>
+            }
+        </div>
+        <div class="form-container sign-in">
+            @using (Html.BeginForm("SignIn","Login", FormMethod.Post))
+            {
+                <h1>Iniciar Sesion</h1>
+                <div class="brand">
+                    <a href="@Url.Action("Index","Home")"><h3>DaanEssence</h3></a>
+                </div>
+                @Html.TextBoxFor(m => m.username, new { @type = "text", @placeholder = "Nombre de Usuario / Correo Electronico" })
+                <div style="position: relative; width: 100%;">
+                    <!-- Campo de entrada de contraseña -->
+                    @Html.PasswordFor(m => m.password, new { @type = "password", @placeholder = "Contraseña", @class = "password-field", @style = "width: 100%; padding-right: 40px;" })
+
+                    <!-- Ícono para mostrar/ocultar contraseña -->
+                    <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" class="toggle-password">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
+                <a href="@Url.Action("ForgotPass","Login")">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar Sesion</button>
+            }
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hola de nuevo!</h1>
+                    <p>Inicia sesion para seguir utilizando todos nuestros beneficios.</p>
+                    <button class="hidden" id="login">Iniciar Sesion</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Te damos la bienvenida</h1>
+                    <p>Registrate para comenzar a utilizar todos nuestros beneficios.</p>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/template/js/Login.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleIcons = document.querySelectorAll(".toggle-password");
+
+        toggleIcons.forEach(icon => {
+            icon.addEventListener("click", () => {
+                const passwordField = icon.previousElementSibling; // Selecciona el campo de contraseña antes del ícono
+                const currentIcon = icon.querySelector("i"); // Selecciona el ícono dentro del span
+
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    currentIcon.classList.remove("fa-eye");
+                    currentIcon.classList.add("fa-eye-slash");
+                } else {
+                    passwordField.type = "password";
+                    currentIcon.classList.remove("fa-eye-slash");
+                    currentIcon.classList.add("fa-eye");
+                }
+            });
+        });
+    });
+</script>
+    
+</body>
+
+</html>

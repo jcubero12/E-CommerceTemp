@@ -1,0 +1,40 @@
+@model DE_WEB.Entities.UsuarioEnt
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwsome -->
+    <script src="https://kit.fontawesome.com/1e280cd0fb.js" crossorigin="anonymous"></script>
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="~/template/css/ForgotPass.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            @using (Html.BeginForm("ForgotPass","Login", FormMethod.Post))
+            {
+                <h1>Recuperar contraseña</h1>
+                <div class="brand">
+                    <a href="@Url.Action("Index","Home")"><h3>DaanEssence</h3></a>
+                </div>
+                @Html.TextBoxFor(m => m.username, new { @type = "text", @placeholder = "Nombre de Usuario / Correo Electronico" })
+                <button type="submit">Recuperar Cuenta</button>
+            }
+        </div>
+    </div>
+
+    <script src="~/template/js/Login.js"></script>
+    
+</body>
+
+</html>

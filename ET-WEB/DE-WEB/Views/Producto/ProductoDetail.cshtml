@@ -1,0 +1,70 @@
+@{
+    ViewData["Title"] = "ProductoDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+   <link rel="stylesheet" href="~/template/css/ProductDetails.css">
+</head>
+
+<!-- Product Info -->
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="~/template/img/xGray.png" alt="Product Image" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <h1>Your Headline Here</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua</p>
+            <p class="price">$ 0.000</p>
+            <div class="button-actions">
+                <button class="btn btn-dark mb-2">Call to Action</button>
+                <button class="btn btn-outline-dark"><i class="fas fa-heart"></i> Agregar a Wishlist</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <hr class="custom-hr">
+            <ul class="nav nav-circles justify-content-center" id="tabNav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" data-target="#tab1">TAB 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="#tab2">TAB 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="#tab3">TAB 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="#tab4">TAB 4</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active">
+                    <p>Content for Link tab 1.</p>
+                </div>
+                <div id="tab2" class="tab-pane">
+                    <p>Content for Link tab 2.</p>
+                </div>
+                <div id="tab3" class="tab-pane">
+                    <p>Content for Link tab 3.</p>
+                </div>
+                <div id="tab4" class="tab-pane">
+                    <p>Content for Link tab 4.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Product Info -->
+
+<a href="@Url.Action("Resenas", "Producto")" class="btn-reviews">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <span>Reseñas</span>
+</a>
+
+<script src="~/template/js/ProductDetails.js"></script>
