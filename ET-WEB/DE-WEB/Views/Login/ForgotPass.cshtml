@@ -20,6 +20,13 @@
 
 <body>
     <div class="container" id="container">
+        <!-- Botón de Volver Atrás -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <a onclick="window.history.back()" class="btn btn-outline-dark"><i class="fas fa-arrow-left"></i> Volver atrás.</a>
+            </div>
+        </div>
+
         <div class="form-container sign-in">
             @using (Html.BeginForm("ForgotPass","Login", FormMethod.Post))
             {

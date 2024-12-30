@@ -1,4 +1,4 @@
-using DE_WEB.Interface;
+
 using DE_WEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,6 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-builder.Services.AddSingleton<IUsuarioModel, UsuarioModel>();
 
 var app = builder.Build();
 

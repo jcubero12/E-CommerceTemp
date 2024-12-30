@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Interface/" />
     <Folder Include="wwwroot/template/img/" />
   </ItemGroup>
 
