@@ -15,7 +15,7 @@ namespace DE_WEB.Controllers
 
         public IActionResult Index()
         {
-            ViewData["CurrentAction"] = this.ControllerContext.RouteData.Values["action"]?.ToString();
+           
             ViewData["CurrentController"] = this.ControllerContext.RouteData.Values["controller"]?.ToString();
             return View();
         }

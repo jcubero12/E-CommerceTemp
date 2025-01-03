@@ -602,3 +602,18 @@ MigrationBackup/
 .ionide/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+*.xml
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.DE-WEB.iml
+/modules.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+ET-WEB/.idea/.idea.DE-WEB/.idea/.name
